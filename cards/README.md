@@ -35,3 +35,13 @@ We cannot assign a value to a variable outside a function and using it inside it
 - string
 - int
 - float64
+
+## Functions
+
+When we have a return statement, we need to specify it in the func declaration, just after the brackets.
+
+```
+func newCard() string {
+	return "Five of Diamonds"
+}
+```
