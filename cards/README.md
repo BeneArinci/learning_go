@@ -35,6 +35,9 @@ We cannot assign a value to a variable outside a function and using it inside it
 - string
 - int
 - float64
+- array
+- slice
+- map
 
 ## Functions
 
@@ -60,3 +63,27 @@ Both slices and Arrays must be declared and contain a specific data type. It can
 ```
 
 The real key word for every for loop in Go is the **range** one. It indicates what is the slice we want to iterate through. Then, for every element, we can assign (:=) index and value to 2 specific variables (i.e.: i and card).
+
+## Custom type declarations
+
+Go is an object oriented language that works differently from the other OO ones.<br>
+Common OOP languages allow to create classes that are blue prints containing methods and variables that will be related to any instance of that specific class. <br>
+Go allows to declare **new types** but these new types extend from existing base Go types. The declaration works this way:
+
+```
+type deck []string
+```
+
+In the above case, the type deck extends the type slice of strings. <br>
+
+To link functions to this new type we create, we will use what are called **receiver functions** that have the following structure:
+
+```
+    func (receiver newType) funcName() {
+        for i, e := range oneLetterVariable {
+            fmt.Println(i, e)
+        }
+    }
+```
+
+With the receiver statement ("(receiver newType)") we determine that every variable of type = newType will get access to funcName(). The "receiver" refers to any instance of the newType. It is generally named with one or 2 letters (by convention).
