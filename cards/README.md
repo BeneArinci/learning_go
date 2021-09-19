@@ -5,11 +5,11 @@ Go is a **static type** language. When you create a variable of a specific type,
 Assignign a variable can be done in 2 ways:
 
 ```
-var card string = "Ace of Spades"
+    var card string = "Ace of Spades"
 ```
 
 ```
-card := "Ace of Spades
+    card := "Ace of Spades
 ```
 
 In this second example, the compiler will infer the type of the variable from the value we assign to it. <br>
@@ -17,14 +17,14 @@ In this second example, the compiler will infer the type of the variable from th
 If we then want to reassign a new value to the same variable we can just type:
 
 ```
-card = "Two of Diamonds"
+    card = "Two of Diamonds"
 ```
 
 We might be able to initialize a variable and then later assign a variable to it:
 
 ```
-var deckSize int
-deckSize = 52
+    var deckSize int
+    deckSize = 52
 ```
 
 We cannot assign a value to a variable outside a function and using it inside it but we can initialize the variable outside the function and assign it a value + use it inside the function.
@@ -41,7 +41,22 @@ We cannot assign a value to a variable outside a function and using it inside it
 When we have a return statement, we need to specify it in the func declaration, just after the brackets.
 
 ```
-func newCard() string {
-	return "Five of Diamonds"
-}
+    func newCard() string {
+        return "Five of Diamonds"
+    }
 ```
+
+## Arrays
+
+Arrays and Slices are data types used for storing a list of elements.<br>
+The main difference is that Arrays are fixed **length**. Slices are variable in terms of lenght/number of \*elements<br>
+Both slices and Arrays must be declared and contain a specific data type. It can be a list of string as an example.
+
+## For loop
+
+```
+    for i, card := range cards {
+    }
+```
+
+The real key word for every for loop in Go is the **range** one. It indicates what is the slice we want to iterate through. Then, for every element, we can assign (:=) index and value to 2 specific variables (i.e.: i and card).
