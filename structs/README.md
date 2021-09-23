@@ -58,3 +58,50 @@ Interesting Go feature is the possibility to create and assign a struct into a s
 		},
 	}
 ```
+
+### Pointers in Go
+
+Before speaking about pointers we should mention some important info about RAM and how it works. <br>
+
+RAM is made of many slots (value containers) that store info/variables for us. Each slot has an address that points to it.<br>
+
+When we create a variable with Go, it will go into our RAM and will look for a space in our RAM.<br>
+
+Go is know as a **Pass by Value** language. This means that, every time we create a variable, Go will take that value and copy that in the memory. When we pass a value in a function as a receiver, Go is creating a copy of that value and stores it at another address. That copy is made availabe to the function only.<br>
+
+```
+|------------------------------------------------|
+|0000|                                           |
+|0001| person{name:"Bene", surname:"Arinci", ...}| <-- bene
+|0002|                                           |
+|0003| person{name:"Bene", surname:"Arinci", ...}| <-- p
+|------------------------------------------------|
+```
+
+Since the function would be working on p, rather than bene (in the example above), should we use the function to make changes to bene (i.e. name property), we wouldn't be able to do it if it wasn't for pointers.<br>
+
+Functions that aim to modify the value/values of a variable, should take the pointer to that variable as a receiver rather than the variable per se. How to?
+
+```
+    mySelf := person{
+            name:    "Bene",
+            surname: "Arinci",
+            age:     32,
+            contactInfo: contactInfo{
+                email:   "aaa@gmail.com",
+                zipCode: 10101,
+            },
+        }
+
+    // this creates a pointer to the variable mySelf
+    mySelfPointer := &mySelf
+
+    // function takes in a pointer as receiver
+    func (pointerToPerson *person) updateName(newFirstName string) {
+	    (*pointerToPerson).name = newFirstName
+    }
+
+    // function is called on the pointer to the variable and not on the variable
+    mySelfPointer.updateName("Whatever name")
+
+```
