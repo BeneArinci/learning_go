@@ -7,10 +7,10 @@ type contactInfo struct {
 	zipCode int
 }
 type person struct {
-	name        string
-	surname     string
-	age         int
-	contactInfo contactInfo
+	name    string
+	surname string
+	age     int
+	contactInfo
 }
 
 func main() {
@@ -34,9 +34,17 @@ func main() {
 	gianlu.name = "Gianlu"
 	gianlu.age = 32
 
-	fmt.Println(bene)
-	fmt.Println(mySelf)
-	fmt.Println(gianlu)
-	fmt.Printf("%+v", gianlu)
+	bene.updateName("Beneeeeee")
+	bene.print()
+	mySelf.print()
+	gianlu.print()
 
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
+}
+
+func (p person) updateName(newFirstName string) {
+	p.name = newFirstName
 }

@@ -45,7 +45,7 @@ Interesting Go feature is the possibility to create and assign a struct into a s
         name        string
         surname     string
         age         int
-        contactInfo contactInfo
+        contactInfo
     }
 
     mySelf := person{
