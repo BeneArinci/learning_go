@@ -120,3 +120,20 @@ If you use the \* before a type (as it happens when declaring the receiver of a 
 #### Pointers shortcut
 
 When you define a func that takes in a pointer to a type, it can be called also on a variable that is of the original type.
+
+### Considerations on Slices, Arrays and Structs
+
+A Slice is a fancy array that can be resized and has several positive functionalities. But what is a slice?<br>
+
+When we declare a slice, Go is internally creating 2 different data structures:
+
+- A **Slice** that is a data structure that stores 3 values in itself:
+  - pointer to the underlying array (where the actual values are stored)
+  - capacity number. The number of elements that could be contained by the slice at present
+  - length: how many element are contained in the slice
+- An **Array** that stores the actual values
+
+A slice is a **reference value**. This would be a reference to another data structure. In our case, an array. <br>
+Since a reference value is storing info to another variable stored in memory, when we pass it into a function (and the function makes a copy of it) we have the ability to operate on the reference value (slice in this case) but modifying the value this is referring to in a direct way. Without using pointers. A reference value is kind of a pointer.
+
+<div style="text-align:center"><img src="./GoTypes.png" /></div>.
