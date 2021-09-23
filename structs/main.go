@@ -2,18 +2,31 @@ package main
 
 import "fmt"
 
+type contactInfo struct {
+	email   string
+	zipCode int
+}
 type person struct {
-	name    string
-	surname string
-	age     int
+	name        string
+	surname     string
+	age         int
+	contactInfo contactInfo
 }
 
 func main() {
 
 	// initializing person variables
-	bene := person{"Bene", "Arinci", 32}
+	bene := person{"Bene", "Arinci", 32, contactInfo{"Flat 21", 11111}}
 
-	mySelf := person{name: "Bene", surname: "Arinci", age: 32}
+	mySelf := person{
+		name:    "Bene",
+		surname: "Arinci",
+		age:     32,
+		contactInfo: contactInfo{
+			email:   "aaa@gmail.com",
+			zipCode: 10101,
+		},
+	}
 
 	var gianlu person
 
@@ -25,4 +38,5 @@ func main() {
 	fmt.Println(mySelf)
 	fmt.Println(gianlu)
 	fmt.Printf("%+v", gianlu)
+
 }

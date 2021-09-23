@@ -31,3 +31,30 @@ A third and last way of declaring a struct is by initializing the variable first
 ```
     var gianlu person
 ```
+
+### Embedded struct
+
+Interesting Go feature is the possibility to create and assign a struct into a struct:
+
+```
+    type contactInfo struct {
+        email   string
+        zipCode int
+    }
+    type person struct {
+        name        string
+        surname     string
+        age         int
+        contactInfo contactInfo
+    }
+
+    mySelf := person{
+		name:    "Bene",
+		surname: "Arinci",
+		age:     32,
+		contactInfo: contactInfo{
+			email:   "aaa@gmail.com",
+			zipCode: 10101,
+		},
+	}
+```
