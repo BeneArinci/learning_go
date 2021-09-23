@@ -25,3 +25,9 @@ Another and far better way to create an instance of the type struct is to specif
 ```
     mySelf := person{name: "Bene", surname: "Arinci", age: 32}
 ```
+
+A third and last way of declaring a struct is by initializing the variable first and adding values to it later. Important to consider is that when a struct type variable get initialized, everyone of its values is given a value of "ZERO" based on the its specific type (i.e. a string would be "", int = 0, bool=false etc.)
+
+```
+    var gianlu person
+```
