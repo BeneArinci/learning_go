@@ -34,10 +34,7 @@ func main() {
 	gianlu.name = "Gianlu"
 	gianlu.age = 32
 
-	// this creates a pointer to the address bene is stored
-	benePointer := &bene
-
-	benePointer.updateName("Beneeeeee")
+	bene.updateName("Beneeeeee")
 
 	bene.print()
 
@@ -50,6 +47,6 @@ func (p person) print() {
 	fmt.Printf("%+v", p)
 }
 
-func (pointerToPerson *person) updateName(newFirstName string) {
-	(*pointerToPerson).name = newFirstName
+func (p *person) updateName(newFirstName string) {
+	(*p).name = newFirstName
 }

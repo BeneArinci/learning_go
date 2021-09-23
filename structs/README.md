@@ -105,3 +105,18 @@ Functions that aim to modify the value/values of a variable, should take the poi
     mySelfPointer.updateName("Whatever name")
 
 ```
+
+#### Pointers operators
+
+- "&variable": this is an operator that gives us access to the memory address my variable is sitting at (a.k.a. variable pointer);
+- "\*variable": this is an operator that take an address and gives back the value stored at that address.
+
+IMPORTANT: When you see a \* sign before a type is very different from seeing it before a pointer! <br>
+
+If you set a \* just before a pointer you're aiming to get the value sitting at that address (i.e. inside the updateName func). <br>
+
+If you use the \* before a type (as it happens when declaring the receiver of a func) you're actually just describing the type of the receiver that, in this case, would be a pointer to a type.
+
+#### Pointers shortcut
+
+When you define a func that takes in a pointer to a type, it can be called also on a variable that is of the original type.
