@@ -38,3 +38,21 @@ Adding a key-value pair to a map must be done using the square brakets indicatin
 ```
 
 To delete an element from a map we use the delete built in function. The first value we pass to the delete function is the map and the second is the key that we want to delete.
+
+### Iterate over a map
+
+```
+    func printMap(mapObj map[string]string) {
+        for key, value := range mapObj {
+            fmt.Println(value, key)
+        }
+    }
+```
+
+### Maps VS Structs
+
+<div style="text-align:center"><img src="./mapsVSstructs.png" /></div>
+
+Generally you would use a map for very closely related values. <br>
+Maps are modifiable. You can add and remove elements as you please as long as they are the same type. <br>
+Map is a reference type!
