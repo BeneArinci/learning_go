@@ -1,0 +1,2 @@
+This is my file. The file I want to read and write to the terminal.
+
