@@ -1,10 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"os"
 )
+
+type logWriter struct{}
 
 func main() {
 	resp, err := http.Get("http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
@@ -25,6 +28,18 @@ func main() {
 
 	// --> fmt.Println(string(bs))
 
-	io.Copy(os.Stdout, resp.Body)
+	lw := logWriter{}
+	io.Copy(lw, resp.Body)
 
+	// // io.Copy func takes in an arg that implements the Writer interface (has a func called write)
+	// // and another one that implements the Reader interface (respond to a method read) and prints out
+	// // The following func prints out to stdout the response body
+	// --> io.Copy(os.Stdout, resp.Body)
+
+}
+
+func (logWriter) Write(bs []byte) (int, error) {
+	fmt.Println(string(bs))
+	fmt.Println("Just wrote this many bytes: ", len(bs))
+	return len(bs), nil
 }
